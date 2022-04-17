@@ -1,0 +1,7 @@
+.local-pack/
+node_modules/
+src/
+
+.gitignore
+tsconfig.json
+package-lock.json
