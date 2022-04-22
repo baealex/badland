@@ -1,3 +1,7 @@
+interface SubscribeOptions {
+    initialize?: boolean
+}
+
 function createUUID(): string {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
         const r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -98,8 +102,11 @@ export default class Store<T> {
 
     }
 
-    subscribe(fn: (state: T) => void) {
-        fn(this.state);
+    subscribe(fn: (state: T) => void, options?: SubscribeOptions) {
+        if (options?.initialize) {
+            fn(this.state);
+        }
+        
         const key = createUUID();
         this._observers[key] = fn;
         return key;
