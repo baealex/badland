@@ -1,8 +1,8 @@
 .local-pack/
 node_modules/
 src/
-test.js
-test.d.ts
+dist/test.js
+dist/test.d.ts
 
 .gitignore
 tsconfig.json
