@@ -1,13 +1,12 @@
 {
   "name": "badland",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "package for state management",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "deploy": "npm run build && npm publish",
-    "test": "tsc && node dist/test.js"
+    "deploy": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",

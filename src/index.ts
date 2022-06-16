@@ -116,7 +116,7 @@ export default class Store<T> {
         delete this._observers[key];
     }
 
-    syncValue(valueName: keyof T, setValue: (value: any) => void) {
+    syncValue(valueName: keyof T, setValue: (value: T[keyof T]) => void) {
         return () => {
             const key = this.subscribe((state) => {
                 setValue(state[valueName]);
