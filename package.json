@@ -1,6 +1,6 @@
 {
   "name": "badland",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "package for state management",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
