@@ -1,0 +1,34 @@
+{
+  "name": "badland-react",
+  "version": "0.0.6",
+  "description": "badland package for react",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "npm run build && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baealex/badland-react.git"
+  },
+  "keywords": [
+    "react",
+    "state"
+  ],
+  "author": "Jino Bae <im@baejino.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baealex/badland-react/issues"
+  },
+  "homepage": "https://github.com/baealex/badland-react#readme",
+  "devDependencies": {
+    "@types/react": "^18.0.13",
+    "badland": "^0.2.3",
+    "react": "^18.2.0",
+    "typescript": "^4.3.5"
+  },
+  "files": [
+    "dist"
+  ]
+}

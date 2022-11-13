@@ -8,5 +8,8 @@
         "lib": ["ES2015", "ES2015.Promise", "ES5", "DOM"]
     },
     "include": ["./src/**/*"],
-    "exclude": ["./packages"]
+    "exclude": [
+        "node_modules",
+        "react"
+    ]
 }

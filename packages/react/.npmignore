@@ -1,0 +1,9 @@
+.local-pack/
+node_modules/
+src/
+dist/test.js
+dist/test.d.ts
+
+.gitignore
+tsconfig.json
+package-lock.json
