@@ -9,7 +9,7 @@ export function useStore<T>(store: Store<T>): [T, <K extends keyof T>(nextState:
         return () => store.unsubscribe(key);
     }, []);
 
-    return [ state, store.set ];
+    return [ state, store.set.bind(store) ];
 }
 
 export function useValue<T>(store: Store<T>, name: keyof T): [T[keyof T], (v: T[keyof T]) => Promise<T>]{
