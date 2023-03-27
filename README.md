@@ -1,15 +1,15 @@
 # badland
 
-- 쉽습니다.
-- 의존이 없습니다.
+- Easy to use.
+- No dependencies.
 
 <br>
 
-## 사용방법
+## Usage
 
-### 스토어 생성
+### Creating a store
 
-`badland`에서 제공하는 스토어를 상속받아서 스토어를 구현합니다.
+To create a store, you can either inherit the `Store` class provided by `badland` and implement the store yourself, or you can use the createStore function provided by `badland`:
 
 ```js
 // store/auth.ts
@@ -36,7 +36,7 @@ class AuthStore extends Store<AuthStoreState> {
 export const authStore = new AuthStore()
 ```
 
-또는 아래 함수를 사용하여 생성할 수 있습니다.
+Alternatively, you can create a store using the `createStore` function:
 
 ```js
 import { createStore } from 'badland'
@@ -49,17 +49,17 @@ export const authStore = createStore({
 
 <br>
 
-### 스토어 구독
+### Subscribing to a store
 
-`subscribe` 메서드로 상태의 변경을 감시할 수 있습니다. 이 메서드는 `key` 값을 리턴하며 이 값은 구독 해제시 사용합니다. 
+You can subscribe to a store's state changes using the `subscribe` method. This method returns a `key` value that you can use to unsubscribe later:
 
 ```js
 import { authStore } from '~/store/auth'
 
 const key = authStore.subscribe((state) => {
     document.getElementById('root').innerHTML = !state.isLogin
-        ? `<div>로그인이 필요합니다.</div>`
-        : `<div>${state.username}님 환영합니다!</div>`
+        ? `<div>You need to log in.</div>`
+        : `<div>Welcome, ${state.username}!</div>`
 })
 
 // authStore.unsubscribe(key)
@@ -67,9 +67,9 @@ const key = authStore.subscribe((state) => {
 
 <br>
 
-### 스토어 상태 변경
+### Changing a store's state
 
-객체를 전달하여 값을 변경합니다.
+To change a store's state, you can pass an object with the new values to the `set` method:
 
 ```js
 authStore.set({
@@ -78,7 +78,7 @@ authStore.set({
 })
 ```
 
-함수로 전달하면 이전 상태를 받을 수 있습니다.
+Alternatively, you can pass a function that takes the previous state and returns a new state:
 
 ```js
 authStore.set((prevState) => ({
@@ -87,7 +87,7 @@ authStore.set((prevState) => ({
 }))
 ```
 
-변경이 필요한 객체만 전달해도 됩니다.
+You can also pass an object with only the properties that need to be changed:
 
 ```js
 authStore.set((prevState) => ({
@@ -97,9 +97,9 @@ authStore.set((prevState) => ({
 
 <br>
 
-### 스토어 상태 변경 감지
+### Detecting state changes
 
-`beforeStateChange`, `afterStateChange` 메서드를 오버라이딩하여 상태 변경시 동작할 로직을 작성할 수 있습니다.
+You can override the `beforeStateChange` and `afterStateChange` methods to execute custom logic before and after the state changes:
 
 ```js
 import Store from 'badland'
@@ -132,9 +132,9 @@ export const authStore = new AuthStore()
 
 <br>
 
-### 스토어 디버깅
+### Debugging a store
 
-스토어의 `debug` 변수를 `true`로 변경합니다.
+To enable debugging for a store, set the `debug` property to `true`:
 
 ```js
 import Store from 'badland'
@@ -158,7 +158,7 @@ class AuthStore extends Store<AuthStoreState> {
 export const authStore = new AuthStore()
 ```
 
-이후 상태 변경시 로그가 아래와 같이 출력됩니다.
+When debugging is enabled, every time the state changes, a log message will be outputted. The log message looks like this:
 
 ```
 authStore > Array(1) [ {…} ]
@@ -166,7 +166,7 @@ authStore > Array(2) [ {…}, {…} ]
 authStore > Array(3) [ {…}, {…}, {…} ]
 ```
 
-`debugger` 변수를 오버라이딩하여 수정할 수 있습니다. `name`은 스토어의 이름 `states`는 변경 기록이 누적된 값입니다.
+You can modify the `debugger` variable by overriding it. The `name` refers to the name of the store and `states` contains the accumulated change history.
 
 ```js
 import Store from 'badland'
