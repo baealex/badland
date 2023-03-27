@@ -1,6 +1,6 @@
 # badland-react
 
-다음과 같은 `badland` 스토어가 있다고 가정합니다.
+Let's assume that there is a `badland` store like the following:
 
 ```js
 // store/auth.ts
@@ -13,7 +13,7 @@ export const authStore = createStore({
 })
 ```
 
-상태 객체를 공유하기 위해선 `useStore` hook을 사용합니다.
+To share the state object, we use the `useStore` hook.
 
 ```js
 import { useStore } from 'badland-react'
@@ -30,7 +30,7 @@ function Component() {
 }
 ```
 
-단일 값를 공유하기 위해선 `useValue` hook을 사용합니다.
+To share a single value, you can use the `useValue` hook.
 
 ```js
 import { useValue } from 'badland-react'
